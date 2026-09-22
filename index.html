@@ -2,609 +2,729 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Happy Birthday Freeztozu 💜</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<title>For Rudransh 💜</title>
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
 }
 
-html{
-  scroll-behavior:smooth;
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden !important;
+    position:fixed;
+    inset:0;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#05020b;
-  color:white;
-  overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#05020b;
+    color:white;
+    overscroll-behavior:none;
 }
 
-section{
-  min-height:100vh;
-  padding:70px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
+#app{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 20%,#7c3aed25,transparent 35%),
+        radial-gradient(circle at 20% 80%,#d946ef12,transparent 30%),
+        #05020b;
 }
 
-.container{
-  width:min(950px,100%);
-}
+/* ---------- STARS ---------- */
 
-h1{
-  font-size:clamp(45px,10vw,90px);
-}
-
-h2{
-  font-size:clamp(30px,7vw,55px);
-  margin-bottom:15px;
-}
-
-p{
-  color:#cfc6df;
-  line-height:1.7;
-}
-
-button{
-  border:0;
-  color:white;
-  background:linear-gradient(135deg,#7c3aed,#a855f7,#d946ef);
-  padding:14px 25px;
-  border-radius:30px;
-  font-size:16px;
-  cursor:pointer;
-  box-shadow:0 10px 35px #8b5cf655;
-  transition:.25s;
-}
-
-button:hover{
-  transform:translateY(-3px) scale(1.03);
-}
-
-.purple-text{
-  background:linear-gradient(90deg,#c084fc,#e879f9,#a78bfa);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-/* ================= HOME ================= */
-
-#home{
-  background:
-    radial-gradient(circle at 50% 30%,#7c3aed66,transparent 35%),
-    linear-gradient(#090313,#030107);
-}
-
-.badge{
-  color:#c084fc;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:15px;
-}
-
-.hero-sub{
-  font-size:20px;
-  margin:20px auto 30px;
-  max-width:650px;
-}
-
-.scroll{
-  margin-top:40px;
-  animation:bounce 1.5s infinite;
-  color:#a78bfa;
-}
-
-@keyframes bounce{
-  50%{transform:translateY(10px)}
-}
-
-/* ================= GIFT ================= */
-
-#gift{
-  background:linear-gradient(#030107,#10051c);
-}
-
-.gift{
-  width:180px;
-  height:150px;
-  margin:50px auto 30px;
-  position:relative;
-  cursor:pointer;
-}
-
-.gift-body{
-  position:absolute;
-  bottom:0;
-  width:180px;
-  height:110px;
-  background:linear-gradient(135deg,#7c3aed,#c026d3);
-  border-radius:10px;
-  box-shadow:0 20px 60px #8b5cf677;
-}
-
-.gift-lid{
-  position:absolute;
-  top:10px;
-  left:-10px;
-  width:200px;
-  height:40px;
-  border-radius:8px;
-  background:#a855f7;
-  transition:.5s;
-}
-
-.ribbon{
-  position:absolute;
-  left:77px;
-  top:10px;
-  width:27px;
-  height:140px;
-  background:#f5d0fe;
-}
-
-.gift.open .gift-lid{
-  transform:translateY(-80px) rotate(-5deg);
-}
-
-.hidden{
-  display:none;
-}
-
-.reveal{
-  animation:fadeUp .7s;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* ================= STARS ================= */
-
-#stars{
-  background:#020108;
-  overflow:hidden;
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
 }
 
 .star{
-  position:absolute;
-  width:3px;
-  height:3px;
-  background:white;
-  border-radius:50%;
-  animation:twinkle 2s infinite alternate;
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
 }
 
-@keyframes twinkle{
-  from{opacity:.2}
-  to{opacity:1;transform:scale(1.7)}
+/* ---------- SCREENS ---------- */
+
+.screen{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:
+        max(35px,env(safe-area-inset-top))
+        16px
+        max(20px,env(safe-area-inset-bottom));
+
+    overflow:hidden !important;
 }
+
+.screen.active{
+    display:flex;
+    animation:enter .38s ease-out;
+}
+
+@keyframes enter{
+    from{
+        opacity:0;
+        transform:translateX(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* ---------- CONTENT ---------- */
+
+.content{
+    width:100%;
+    max-width:460px;
+    max-height:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.card{
+    width:100%;
+    max-height:calc(100dvh - 70px);
+    padding:clamp(18px,4vh,30px) 18px;
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124,58,237,.15),
+            rgba(217,70,239,.04)
+        ),
+        rgba(255,255,255,.025);
+
+    border:1px solid rgba(192,132,252,.25);
+
+    box-shadow:
+        0 0 40px rgba(124,58,237,.10),
+        inset 0 1px rgba(255,255,255,.06);
+
+    overflow:hidden;
+}
+
+.icon{
+    font-size:52px;
+    margin-bottom:10px;
+    filter:drop-shadow(0 0 16px #a855f7);
+}
+
+h1{
+    font-size:clamp(38px,10vw,65px);
+    line-height:1;
+}
+
+h2{
+    font-size:clamp(28px,8vw,43px);
+    margin-bottom:10px;
+}
+
+.purple{
+    background:linear-gradient(
+        90deg,
+        #c084fc,
+        #e879f9,
+        #a78bfa
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    color:#cfc5d8;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.message{
+    margin-top:15px;
+    color:#ddd4e5;
+    line-height:1.7;
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn{
+    border:0;
+    outline:0;
+    margin-top:20px;
+
+    min-width:210px;
+    padding:14px 22px;
+
+    border-radius:30px;
+
+    color:white;
+    background:
+        linear-gradient(
+            100deg,
+            #7c3aed,
+            #a855f7,
+            #d946ef
+        );
+
+    font-size:16px;
+    font-weight:bold;
+
+    box-shadow:
+        0 8px 30px #8b5cf655;
+
+    cursor:pointer;
+}
+
+.btn:active{
+    transform:scale(.96);
+}
+
+.btn:disabled{
+    opacity:.3;
+}
+
+/* ---------- PROGRESS ---------- */
+
+.progress{
+    position:fixed;
+    top:12px;
+    left:15px;
+    right:15px;
+
+    height:3px;
+
+    display:flex;
+    gap:4px;
+
+    z-index:100;
+}
+
+.progress i{
+    flex:1;
+    height:3px;
+    border-radius:5px;
+    background:#ffffff12;
+}
+
+.progress i.done,
+.progress i.active{
+    background:#b45cff;
+    box-shadow:0 0 8px #a855f7;
+}
+
+/* ---------- GIFT ---------- */
+
+.gift{
+    width:190px;
+    height:170px;
+    position:relative;
+    margin:25px auto 5px;
+    cursor:pointer;
+}
+
+.gift-body{
+    position:absolute;
+    left:15px;
+    bottom:5px;
+    width:160px;
+    height:105px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#7c3aed,#c026d3);
+    box-shadow:0 15px 40px #8b5cf655;
+}
+
+.gift-lid{
+    position:absolute;
+    left:5px;
+    top:35px;
+    width:180px;
+    height:38px;
+    border-radius:8px;
+    background:#a855f7;
+    z-index:3;
+    transition:.5s;
+}
+
+.ribbon{
+    position:absolute;
+    left:70px;
+    width:22px;
+    height:100%;
+    background:#f5d0fe;
+}
+
+.gift.open .gift-lid{
+    transform:translateY(-65px) rotate(-4deg);
+}
+
+/* ---------- WISH ---------- */
 
 .moon{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  background:#f5e8ff;
-  box-shadow:0 0 70px #c084fc;
-  margin:0 auto 40px;
+    width:100px;
+    height:100px;
+    margin:25px auto;
+
+    border-radius:50%;
+    background:#eadcff;
+
+    box-shadow:0 0 50px #c084fc;
+
+    position:relative;
+    overflow:hidden;
 }
 
-/* ================= BALLOON GAME ================= */
+.moon:after{
+    content:"";
+    position:absolute;
 
-#balloons{
-  background:linear-gradient(#030107,#10051c);
+    width:90px;
+    height:90px;
+
+    left:28px;
+    top:-8px;
+
+    border-radius:50%;
+
+    background:#08040f;
 }
 
-.balloon-area{
-  width:min(700px,100%);
-  height:430px;
-  background:#ffffff08;
-  border:1px solid #ffffff12;
-  border-radius:25px;
-  position:relative;
-  overflow:hidden;
-  margin:30px auto;
+/* ---------- BALLOONS ---------- */
+
+.game{
+    width:100%;
+    height:260px;
+    margin:18px 0 10px;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:22px;
+    border:1px solid #a855f744;
+
+    background:#08040f;
 }
 
 .balloon{
-  position:absolute;
-  font-size:45px;
-  cursor:pointer;
-  animation:floatBalloon 5s linear forwards;
+    position:absolute;
+    width:40px;
+    height:48px;
+
+    border-radius:50% 50% 45% 45%;
+
+    cursor:pointer;
+
+    animation:float 3s linear forwards;
 }
 
-@keyframes floatBalloon{
-  from{
-    transform:translateY(450px);
-  }
-  to{
-    transform:translateY(-100px);
-  }
+.balloon:after{
+    content:"";
+    position:absolute;
+
+    width:1px;
+    height:25px;
+
+    background:#aaa;
+
+    left:50%;
+    top:46px;
 }
 
-/* ================= CAKE GAME ================= */
-
-#cake{
-  background:
-    radial-gradient(circle,#7c3aed33,transparent 45%),
-    #05020b;
+.b1{
+    background:linear-gradient(135deg,#c084fc,#7c3aed);
+    box-shadow:0 0 18px #a855f7;
 }
+
+.b2{
+    background:linear-gradient(135deg,#f0abfc,#d946ef);
+    box-shadow:0 0 18px #d946ef;
+}
+
+.b3{
+    background:linear-gradient(135deg,#67e8f9,#0891b2);
+    box-shadow:0 0 18px #22d3ee;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(280px);
+    }
+    to{
+        transform:translateY(-80px);
+    }
+}
+
+.score{
+    font-weight:bold;
+}
+
+/* ---------- CAKE ---------- */
 
 .cake{
-  font-size:100px;
-  margin:30px;
+    font-size:85px;
+    margin:12px 0;
 }
 
 .candles{
-  font-size:40px;
-  letter-spacing:10px;
-  margin-bottom:20px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
 }
 
 .candle{
-  cursor:pointer;
-  display:inline-block;
-  transition:.3s;
+    font-size:32px;
+    cursor:pointer;
 }
 
 .candle.off{
-  filter:grayscale(1);
-  opacity:.35;
+    opacity:.2;
+    filter:grayscale(1);
 }
 
-/* ================= TARGET GAME ================= */
+/* ---------- TARGET ---------- */
 
-#target{
-  background:#08020e;
+.targetbox{
+    width:100%;
+    height:250px;
+
+    margin:18px 0;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:22px;
+    border:1px solid #a855f744;
+
+    background:#08040f;
 }
 
-.target-area{
-  width:min(600px,100%);
-  height:400px;
-  background:#ffffff07;
-  border:1px solid #8b5cf633;
-  border-radius:25px;
-  position:relative;
-  overflow:hidden;
-  margin:25px auto;
+.target{
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    background:
+        radial-gradient(
+            circle,
+            #05020b 0 15%,
+            #e879f9 16% 30%,
+            #05020b 31% 45%,
+            #a855f7 46% 60%,
+            #05020b 61%
+        );
+
+    box-shadow:0 0 20px #a855f7;
+
+    cursor:pointer;
 }
 
-.target-dot{
-  position:absolute;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#c084fc;
-  box-shadow:0 0 30px #c084fc;
-  cursor:pointer;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:22px;
+/* ---------- FLIP CARDS ---------- */
+
+.flip-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
 }
 
-/* ================= CARDS ================= */
-
-#cards{
-  background:linear-gradient(#05020b,#11051b);
-}
-
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:30px;
-}
-
-.flip-card{
-  height:200px;
-  perspective:1000px;
-  cursor:pointer;
+.flip{
+    height:120px;
+    perspective:700px;
 }
 
 .flip-inner{
-  width:100%;
-  height:100%;
-  position:relative;
-  transition:.7s;
-  transform-style:preserve-3d;
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:.5s;
 }
 
-.flip-card.flipped .flip-inner{
-  transform:rotateY(180deg);
+.flip.open .flip-inner{
+    transform:rotateY(180deg);
 }
 
-.card-front,
-.card-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  backface-visibility:hidden;
-  border-radius:22px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  border:1px solid #ffffff15;
+.front,
+.back{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+    border:1px solid #a855f744;
+
+    backface-visibility:hidden;
 }
 
-.card-front{
-  background:linear-gradient(145deg,#7c3aed33,#d946ef22);
-  font-size:35px;
+.front{
+    background:#7c3aed18;
+    font-size:34px;
 }
 
-.card-back{
-  background:#16091f;
-  transform:rotateY(180deg);
+.back{
+    background:#13071c;
+    transform:rotateY(180deg);
+
+    padding:12px;
+
+    color:#ddd;
+    font-size:13px;
+    line-height:1.4;
 }
 
-/* ================= SCRATCH CARDS ================= */
+/* ---------- SECRET ---------- */
 
-#scratch{
-  background:#05020b;
+.secret-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
 }
 
-.scratch-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:30px;
+.secret{
+    height:110px;
+    position:relative;
+    overflow:hidden;
+
+    border-radius:18px;
+    background:linear-gradient(135deg,#7c3aed,#c026d3);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
 }
 
-.scratch-card{
-  min-height:170px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#7c3aed,#c026d3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  padding:20px;
-  position:relative;
-  overflow:hidden;
+.cover{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #21102c,
+            #21102c 8px,
+            #321444 8px,
+            #321444 16px
+        );
+
+    font-size:30px;
+
+    transition:.4s;
 }
 
-.scratch-card::after{
-  content:"TAP TO REVEAL ✨";
-  position:absolute;
-  inset:0;
-  background:#151020;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.5s;
+.secret.open .cover{
+    transform:translateY(-100%);
 }
 
-.scratch-card.revealed::after{
-  opacity:0;
-  pointer-events:none;
-}
-
-/* ================= MYSTERY ================= */
-
-#secret{
-  background:#09030f;
-}
+/* ---------- CLUES ---------- */
 
 .clues{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin:30px auto;
+    display:grid;
+    gap:9px;
+    margin-top:15px;
 }
 
 .clue{
-  padding:30px 20px;
-  border-radius:22px;
-  background:#ffffff08;
-  border:1px solid #8b5cf644;
-  cursor:pointer;
+    text-align:left;
+    padding:15px;
+
+    border-radius:15px;
+    border:1px solid #a855f744;
+
+    background:#ffffff05;
 }
 
-.clue p{
-  display:none;
-  margin-top:12px;
+.answer{
+    display:none;
+    margin-top:7px;
+    color:#c084fc;
 }
 
-.clue.open p{
-  display:block;
+.clue.open .answer{
+    display:block;
 }
 
-/* ================= BRO CARDS ================= */
+/* ---------- FINAL ---------- */
 
-#bro{
-  background:linear-gradient(#09030f,#040108);
+.finalMessage{
+    font-size:15px;
+    line-height:1.75;
+    color:#ddd4e5;
 }
 
-.bro-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:30px;
+.final{
+    background:
+        radial-gradient(
+            circle at center,
+            #7c3aed35,
+            transparent 55%
+        );
 }
 
-.bro-card{
-  padding:30px 20px;
-  border-radius:25px;
-  background:#ffffff08;
-  border:1px solid #ffffff12;
-  transition:.3s;
-}
-
-.bro-card:hover{
-  transform:translateY(-8px);
-  border-color:#a855f7;
-}
-
-.bro-card .emoji{
-  font-size:45px;
-  margin-bottom:15px;
-}
-
-/* ================= MEMORIES ================= */
-
-#memories{
-  background:#05020b;
-}
-
-.timeline{
-  width:min(750px,100%);
-  margin:30px auto;
-  border-left:2px solid #8b5cf6;
-  text-align:left;
-}
-
-.memory{
-  margin:25px 0 25px 30px;
-  padding:25px;
-  background:#ffffff08;
-  border-radius:20px;
-  position:relative;
-}
-
-.memory::before{
-  content:"";
-  position:absolute;
-  width:15px;
-  height:15px;
-  border-radius:50%;
-  background:#c084fc;
-  left:-39px;
-  top:30px;
-  box-shadow:0 0 20px #c084fc;
-}
-
-/* ================= FINAL ================= */
-
-#final{
-  background:
-    radial-gradient(circle at center,#7c3aed66,transparent 45%),
-    #030107;
-}
-
-.final-card{
-  max-width:700px;
-  padding:50px 30px;
-  border-radius:30px;
-  background:#ffffff0a;
-  border:1px solid #ffffff18;
-  backdrop-filter:blur(10px);
-}
-
-.final-card p{
-  font-size:18px;
-}
-
-.signature{
-  margin-top:30px;
-  color:#c084fc;
-  font-size:20px;
-}
-
-/* ================= CONFETTI ================= */
+/* ---------- CONFETTI ---------- */
 
 .confetti{
-  position:fixed;
-  width:9px;
-  height:9px;
-  top:-20px;
-  z-index:9999;
-  animation:fall 4s linear forwards;
+    position:fixed;
+    top:-20px;
+    width:7px;
+    height:12px;
+    z-index:9999;
+
+    animation:fall 3s linear forwards;
 }
 
 @keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-  }
+    to{
+        transform:
+            translateY(110dvh)
+            rotate(720deg);
+    }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ---------- SMALL PHONES ---------- */
 
-@media(max-width:700px){
+@media(max-height:650px){
 
-  .cards-grid,
-  .scratch-grid,
-  .clues,
-  .bro-grid{
-    grid-template-columns:1fr;
-  }
+    .card{
+        padding:15px;
+    }
 
-  .balloon-area{
-    height:350px;
-  }
+    .icon{
+        font-size:40px;
+    }
 
-  .target-area{
-    height:350px;
-  }
+    .game{
+        height:210px;
+    }
 
-  section{
-    padding:65px 14px;
-  }
+    .targetbox{
+        height:205px;
+    }
+
+    .cake{
+        font-size:65px;
+        margin:5px;
+    }
+
+    .moon{
+        width:75px;
+        height:75px;
+        margin:15px auto;
+    }
+
+    .flip{
+        height:95px;
+    }
+
+    .secret{
+        height:90px;
+    }
+
+    .btn{
+        margin-top:13px;
+        padding:12px 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<div id="app">
 
-<!-- ================= HOME ================= -->
+<div class="stars" id="stars"></div>
 
-<section id="home">
 
-<div class="container">
+<!-- ================= WELCOME ================= -->
 
-<div class="badge">A Special Birthday Surprise</div>
+<section class="screen active" id="screen0">
 
-<h1 class="purple-text">
-Rudransh 🎂
-</h1>
+<div class="content">
 
-<h2 style="font-size:28px">
-aka <span class="purple-text">Freeztozu</span> 💜
-</h2>
+<div class="icon">👑</div>
 
-<p class="hero-sub">
-Happy Birthday bhai! 🥳<br>
-I made this little place just for you.
+<p class="subtitle">A SPECIAL SURPRISE FOR</p>
+
+<h1 class="purple">Rudransh</h1>
+
+<p class="subtitle">
+aka <b>Freeztozu</b> 💜
 </p>
 
-<button onclick="go('gift')">
-START THE SURPRISE 🎁
+<p class="message">
+Online friend se zyada...<br>
+<strong>bhai samaan. 🫂</strong>
+</p>
+
+<button class="btn" onclick="go(1)">
+START SURPRISE →
 </button>
 
-<div class="scroll">
-↓ There's a lot waiting below
 </div>
 
-</div>
 </section>
 
 
 <!-- ================= GIFT ================= -->
 
-<section id="gift">
+<section class="screen" id="screen1">
 
-<div class="container">
+<div class="content">
 
-<h2>🎁 Your First Gift</h2>
+<div class="card">
 
-<p>Open it, birthday boy.</p>
+<div class="icon">🎁</div>
 
-<div class="gift" onclick="openGift(this)">
+<h2>
+Your First <span class="purple">Gift</span>
+</h2>
 
-<div class="gift-lid"></div>
+<p class="subtitle">
+Open it, birthday boy.
+</p>
+
+<div class="gift" id="gift" onclick="openGift()">
+
+<div class="gift-lid">
+<div class="ribbon"></div>
+</div>
 
 <div class="gift-body">
 <div class="ribbon"></div>
@@ -612,710 +732,855 @@ START THE SURPRISE 🎁
 
 </div>
 
-<div id="giftText" class="hidden reveal">
+<p id="giftText" class="subtitle"></p>
 
-<h3 class="purple-text">
-SURPRISE! 🎉
-</h3>
-
-<p>
-Freeztozu bhai unlocked the first surprise. 💜
-<br>
-But we're just getting started...
-</p>
+<button class="btn" id="giftNext" disabled onclick="go(2)">
+NEXT SURPRISE →
+</button>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- ================= STARS ================= -->
+<!-- ================= WISH ================= -->
 
-<section id="stars">
+<section class="screen" id="screen2">
 
-<div id="starsContainer"></div>
+<div class="content">
 
-<div class="container">
+<div class="card">
+
+<div class="icon">🌌</div>
+
+<h2>
+Make A <span class="purple">Wish</span>
+</h2>
+
+<p class="subtitle">
+One secret birthday wish.
+</p>
 
 <div class="moon"></div>
 
-<h2>🌌 Make A Birthday Wish</h2>
-
-<p>
-Look at the stars and make one secret wish.
-</p>
-
-<br>
-
-<button onclick="makeWish()">
+<button class="btn" id="wishBtn" onclick="wish()">
 MAKE MY WISH ⭐
 </button>
 
-<p id="wishResult"></p>
+<button class="btn" id="wishNext" disabled onclick="go(3)">
+NEXT SURPRISE →
+</button>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- ================= BALLOON GAME ================= -->
+<!-- ================= BALLOON ================= -->
 
-<section id="balloons">
+<section class="screen" id="screen3">
 
-<div class="container">
+<div class="content">
 
-<h2>🎈 Pop The Balloons</h2>
+<div class="card">
 
-<p>
-Pop <b>10 balloons</b> to unlock the next surprise!
+<div class="icon">🎈</div>
+
+<h2>
+Pop The <span class="purple">Balloons</span>
+</h2>
+
+<p class="subtitle">
+Pop 10 balloons!
 </p>
 
-<div class="balloon-area" id="balloonArea"></div>
+<div class="game" id="balloonGame"></div>
 
-<h3>
-Score: <span id="balloonScore">0</span>/10
-</h3>
+<div class="score">
+🎈 <span id="bs">0</span>/10
+&nbsp;&nbsp; ⏱️ <span id="bt">20</span>
+</div>
 
-<br>
-
-<button onclick="startBalloons()">
-START GAME 🎈
+<button class="btn" id="balloonStart" onclick="startBalloons()">
+START GAME
 </button>
 
-<p id="balloonResult"></p>
+<button class="btn" id="balloonNext" disabled onclick="go(4)">
+NEXT SURPRISE →
+</button>
 
 </div>
+
+</div>
+
 </section>
 
 
 <!-- ================= CAKE ================= -->
 
-<section id="cake">
+<section class="screen" id="screen4">
 
-<div class="container">
+<div class="content">
 
-<h2>🧁 Blow Out The Candles</h2>
+<div class="card">
 
-<p>
-Tap every candle to turn it off.
+<div class="icon">🎂</div>
+
+<h2>
+Blow The <span class="purple">Candles</span>
+</h2>
+
+<p class="subtitle">
+Tap every candle.
 </p>
 
-<div class="cake">
-🎂
-</div>
+<div class="cake">🎂</div>
 
 <div class="candles">
 
-<span class="candle" onclick="candleOff(this)">🕯️</span>
-<span class="candle" onclick="candleOff(this)">🕯️</span>
-<span class="candle" onclick="candleOff(this)">🕯️</span>
-<span class="candle" onclick="candleOff(this)">🕯️</span>
-<span class="candle" onclick="candleOff(this)">🕯️</span>
+<span class="candle" onclick="candle(this)">🕯️</span>
+<span class="candle" onclick="candle(this)">🕯️</span>
+<span class="candle" onclick="candle(this)">🕯️</span>
+<span class="candle" onclick="candle(this)">🕯️</span>
+<span class="candle" onclick="candle(this)">🕯️</span>
 
 </div>
 
-<p id="candleResult"></p>
+<p class="subtitle">
+Candles left: <b id="cc">5</b>
+</p>
+
+<button class="btn" id="candleNext" disabled onclick="go(5)">
+NEXT SURPRISE →
+</button>
 
 </div>
+
+</div>
+
 </section>
 
 
 <!-- ================= TARGET ================= -->
 
-<section id="target">
+<section class="screen" id="screen5">
 
-<div class="container">
+<div class="content">
 
-<h2>🎯 Birthday Target</h2>
+<div class="card">
 
-<p>
-Hit 10 targets as quickly as possible!
+<div class="icon">🎯</div>
+
+<h2>
+Hit The <span class="purple">Targets</span>
+</h2>
+
+<p class="subtitle">
+Hit 10 targets.
 </p>
 
-<div class="target-area" id="targetArea"></div>
+<div class="targetbox" id="targetBox"></div>
 
-<h3>
-Hits: <span id="targetScore">0</span>/10
-</h3>
+<p class="score">
+🎯 <span id="ts">0</span>/10
+</p>
 
-<br>
-
-<button onclick="startTarget()">
-START 🎯
+<button class="btn" id="targetStart" onclick="startTargets()">
+START GAME
 </button>
 
-<p id="targetResult"></p>
+<button class="btn" id="targetNext" disabled onclick="go(6)">
+NEXT SURPRISE →
+</button>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- ================= FLIP CARDS ================= -->
+<!-- ================= CARDS ================= -->
 
-<section id="cards">
+<section class="screen" id="screen6">
 
-<div class="container">
+<div class="content">
 
-<h2>🃏 Birthday Cards</h2>
+<div class="card">
 
-<p>
-Tap each card to reveal the message.
+<div class="icon">🃏</div>
+
+<h2>
+Birthday <span class="purple">Cards</span>
+</h2>
+
+<p class="subtitle">
+Open all four.
 </p>
 
-<div class="cards-grid">
+<div class="flip-grid">
 
-<div class="flip-card" onclick="flip(this)">
+<div class="flip" onclick="flip(this)">
 <div class="flip-inner">
-<div class="card-front">💜</div>
-<div class="card-back">
-You're genuinely one of the best bros I've met online. 🤝
-</div>
+<div class="front">👑</div>
+<div class="back">One of the coolest bros. 💜</div>
 </div>
 </div>
 
-<div class="flip-card" onclick="flip(this)">
+<div class="flip" onclick="flip(this)">
 <div class="flip-inner">
-<div class="card-front">🔥</div>
-<div class="card-back">
-Never lose that Freeztozu energy 😂
-</div>
+<div class="front">🎮</div>
+<div class="back">Gaming with you = chaos 😂</div>
 </div>
 </div>
 
-<div class="flip-card" onclick="flip(this)">
+<div class="flip" onclick="flip(this)">
 <div class="flip-inner">
-<div class="card-front">🎂</div>
-<div class="card-back">
-Today is officially Freeztozu Day. 🥳
+<div class="front">🤝</div>
+<div class="back">Friend nahi, bhai. 🫂</div>
 </div>
+</div>
+
+<div class="flip" onclick="flip(this)">
+<div class="flip-inner">
+<div class="front">💜</div>
+<div class="back">Purple gang forever.</div>
 </div>
 </div>
 
 </div>
 
+<button class="btn" id="flipNext" disabled onclick="go(7)">
+NEXT SURPRISE →
+</button>
+
 </div>
+
+</div>
+
 </section>
 
 
-<!-- ================= SCRATCH ================= -->
+<!-- ================= SECRET ================= -->
 
-<section id="scratch">
+<section class="screen" id="screen7">
 
-<div class="container">
+<div class="content">
 
-<h2>✨ Secret Cards</h2>
+<div class="card">
 
-<p>
-Tap each card to reveal what's underneath.
+<div class="icon">✨</div>
+
+<h2>
+Secret <span class="purple">Cards</span>
+</h2>
+
+<p class="subtitle">
+Reveal everything.
 </p>
 
-<div class="scratch-grid">
+<div class="secret-grid">
 
-<div class="scratch-card"
-onclick="this.classList.add('revealed')">
-😂
-<br>
-Officially certified crazy bro.
+<div class="secret" onclick="secret(this)">
+<div class="cover">❓</div>
+😂 Bakchodi Partner
 </div>
 
-<div class="scratch-card"
-onclick="this.classList.add('revealed')">
-🤝
-<br>
-Brotherhood unlocked.
+<div class="secret" onclick="secret(this)">
+<div class="cover">❓</div>
+🤝 Brotherhood
 </div>
 
-<div class="scratch-card"
-onclick="this.classList.add('revealed')">
-💜
-<br>
-Purple gang forever.
+<div class="secret" onclick="secret(this)">
+<div class="cover">❓</div>
+🎮 Gaming Duo
 </div>
 
+<div class="secret" onclick="secret(this)">
+<div class="cover">❓</div>
+💜 Purple Gang
 </div>
 
 </div>
+
+<button class="btn" id="secretNext" disabled onclick="go(8)">
+NEXT SURPRISE →
+</button>
+
+</div>
+
+</div>
+
 </section>
 
 
 <!-- ================= MYSTERY ================= -->
 
-<section id="secret">
+<section class="screen" id="screen8">
 
-<div class="container">
+<div class="content">
 
-<h2>🕵️ Mystery Challenge</h2>
+<div class="card">
 
-<p>
-Open all three clues.
+<div class="icon">🕵️</div>
+
+<h2>
+Mystery <span class="purple">Challenge</span>
+</h2>
+
+<p class="subtitle">
+Open all clues.
 </p>
 
 <div class="clues">
 
 <div class="clue" onclick="clue(this)">
-🔐 CLUE 1
-<p>
-Someone important was born today...
-</p>
+<b>🔐 CLUE 01</b>
+<div class="answer">Someone important was born today.</div>
 </div>
 
 <div class="clue" onclick="clue(this)">
-🔐 CLUE 2
-<p>
-His gaming name starts with "Freez"...
-</p>
+<b>🔐 CLUE 02</b>
+<div class="answer">His gaming name is Freeztozu.</div>
 </div>
 
 <div class="clue" onclick="clue(this)">
-🔐 CLUE 3
-<p>
-He's considered a bhai by someone...
-</p>
+<b>🔐 CLUE 03</b>
+<div class="answer">Someone considers him a brother.</div>
 </div>
 
 </div>
 
-<h2 id="mysteryComplete"
-class="hidden purple-text">
-CASE SOLVED! 🎉<br>
-IT'S FREEZTOZU! 💜
+<button class="btn" id="clueNext" disabled onclick="go(9)">
+NEXT SURPRISE →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BRO ================= -->
+
+<section class="screen" id="screen9">
+
+<div class="content">
+
+<div class="card">
+
+<div class="icon">🫂</div>
+
+<h2>
+You're A <span class="purple">Bro</span>
 </h2>
 
+<p class="subtitle">
+And here's why.
+</p>
+
+<div class="message">
+🎮 Gaming partner<br><br>
+😂 Unlimited bakchodi<br><br>
+🤝 Real brotherhood<br><br>
+💜 Purple gang<br><br>
+🔥 Freeztozu energy
 </div>
+
+<button class="btn" onclick="go(10)">
+NEXT SURPRISE →
+</button>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- ================= BRO CARDS ================= -->
+<!-- ================= MEMORY ================= -->
 
-<section id="bro">
+<section class="screen" id="screen10">
 
-<div class="container">
+<div class="content">
 
-<h2>🫂 Why You're A Bro</h2>
+<div class="card">
 
-<p>
-Not just an online friend.
-Proper bhai material. 🤝
-</p>
+<div class="icon">📸</div>
 
-<div class="bro-grid">
-
-<div class="bro-card">
-<div class="emoji">😂</div>
-<h3>Unlimited Bakchodi</h3>
-<p>
-Because normal conversations are apparently illegal.
-</p>
-</div>
-
-<div class="bro-card">
-<div class="emoji">🎮</div>
-<h3>Gaming Partner</h3>
-<p>
-Games are automatically more fun when the bro joins.
-</p>
-</div>
-
-<div class="bro-card">
-<div class="emoji">🤝</div>
-<h3>Brotherhood</h3>
-<p>
-Distance doesn't matter when the bond is real.
-</p>
-</div>
-
-<div class="bro-card">
-<div class="emoji">💜</div>
-<h3>Purple Gang</h3>
-<p>
-Because obviously purple is the correct color.
-</p>
-</div>
-
-<div class="bro-card">
-<div class="emoji">🔥</div>
-<h3>Freeztozu Energy</h3>
-<p>
-There is literally no replacement for this vibe.
-</p>
-</div>
-
-<div class="bro-card">
-<div class="emoji">⭐</div>
-<h3>One Of A Kind</h3>
-<p>
-There is only one Freeztozu.
-</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= MEMORIES ================= -->
-
-<section id="memories">
-
-<div class="container">
-
-<h2>📸 Memory Lane</h2>
-
-<p>
-Add your real memories here later.
-</p>
-
-<div class="timeline">
-
-<div class="memory">
-<h3>🌱 The Beginning</h3>
-<p>
-The day we first became friends.
-</p>
-</div>
-
-<div class="memory">
-<h3>🎮 Gaming Moments</h3>
-<p>
-All those random games and stupid moments.
-</p>
-</div>
-
-<div class="memory">
-<h3>😂 Random Conversations</h3>
-<p>
-The conversations that made absolutely no sense.
-</p>
-</div>
-
-<div class="memory">
-<h3>🎂 Today</h3>
-<p>
-Freeztozu's birthday. 💜
-</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= FINAL ================= -->
-
-<section id="final">
-
-<div class="final-card">
-
-<h2 class="purple-text">
-Happy Birthday Rudransh! 🎂
+<h2>
+Memory <span class="purple">Lane</span>
 </h2>
 
-<p>
+<p class="message">
+🌱 The beginning<br><br>
+🎮 Gaming moments<br><br>
+😂 Random conversations<br><br>
+🎂 And now... your birthday!
+</p>
+
+<button class="btn" onclick="go(11)">
+FINAL MESSAGE →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MESSAGE ================= -->
+
+<section class="screen" id="screen11">
+
+<div class="content">
+
+<div class="card">
+
+<div class="icon">💌</div>
+
+<h2>
+For <span class="purple">Rudransh</span>
+</h2>
+
+<div class="finalMessage">
 
 Bhai, online mile the but tu mere liye
 sirf ek online friend nahi hai.
 
 <br><br>
 
-Tu genuinely bhai samaan hai. 🤝💜
+Tu genuinely <b>bhai samaan</b> hai. 🤝💜
 
 <br><br>
 
 I hope tera ye saal happiness,
-success, crazy memories aur
-bahut saari achhi moments se full rahe.
+success aur bahut saari achhi memories
+se full rahe.
 
 <br><br>
 
-Aaj ka din full enjoy kar,
-birthday boy! 🥳🔥
-
-<br><br>
-
-Stay crazy.
-Stay happy.
-And always keep that
-<b>Freeztozu vibe</b> alive. 😂💜
+Birthday full enjoy kar,
+<b>Freeztozu! 😂💜</b>
 
 <br><br>
 
 Happy Birthday, bhai! 🫂
 
-</p>
-
-<div class="signature">
-— Your Bro 💜
 </div>
 
-<br><br>
-
-<button onclick="celebrate()">
+<button class="btn" onclick="finalScreen()">
 🎉 FINAL SURPRISE
 </button>
+
+</div>
 
 </div>
 
 </section>
 
 
+<!-- ================= FINAL ================= -->
+
+<section class="screen final" id="screen12">
+
+<div class="content">
+
+<div class="icon">👑</div>
+
+<h1 class="purple">
+HAPPY<br>BIRTHDAY!
+</h1>
+
+<h2>Rudransh</h2>
+
+<p class="subtitle">
+aka Freeztozu 💜
+</p>
+
+<p class="message">
+Stay happy.<br>
+Stay crazy.<br>
+Keep gaming. 🎮
+</p>
+
+<button class="btn" onclick="celebrate()">
+💜 FREEZTOZU
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+
 <script>
 
-/* ================= NAVIGATION ================= */
+/* ================= SCREEN SYSTEM ================= */
 
-function go(id){
-document.getElementById(id)
-.scrollIntoView({behavior:"smooth"});
-}
+let current=0;
 
+function go(n){
 
-/* ================= GIFT ================= */
+    document
+        .querySelectorAll(".screen")
+        .forEach(s=>s.classList.remove("active"));
 
-function openGift(el){
+    const next=document.getElementById("screen"+n);
 
-el.classList.add("open");
-
-document
-.getElementById("giftText")
-.classList.remove("hidden");
-
-confetti();
+    if(next){
+        next.classList.add("active");
+        current=n;
+    }
 }
 
 
 /* ================= STARS ================= */
 
-const starBox=
-document.getElementById("starsContainer");
+const stars=document.getElementById("stars");
 
-for(let i=0;i<120;i++){
+for(let i=0;i<60;i++){
 
-const star=document.createElement("div");
+    const s=document.createElement("i");
 
-star.className="star";
+    s.className="star";
 
-star.style.left=Math.random()*100+"%";
-star.style.top=Math.random()*100+"%";
+    s.style.left=Math.random()*100+"%";
+    s.style.top=Math.random()*100+"%";
+    s.style.opacity=.2+Math.random()*.7;
 
-star.style.animationDelay=
-Math.random()*2+"s";
-
-starBox.appendChild(star);
-}
-
-function makeWish(){
-
-document.getElementById("wishResult")
-.innerText=
-"✨ Your wish has been sent to the universe. May it come true! 💜";
-
-confetti();
+    stars.appendChild(s);
 }
 
 
-/* ================= BALLOON GAME ================= */
+/* ================= GIFT ================= */
 
-let balloonScore=0;
+let giftDone=false;
+
+function openGift(){
+
+    if(giftDone)return;
+
+    giftDone=true;
+
+    document
+        .getElementById("gift")
+        .classList.add("open");
+
+    document.getElementById("giftText")
+        .innerText="🎉 Gift unlocked!";
+
+    document.getElementById("giftNext")
+        .disabled=false;
+
+    confetti();
+}
+
+
+/* ================= WISH ================= */
+
+function wish(){
+
+    document.getElementById("wishBtn")
+        .disabled=true;
+
+    document.getElementById("wishBtn")
+        .innerText="✨ WISH SENT";
+
+    document.getElementById("wishNext")
+        .disabled=false;
+
+    confetti();
+}
+
+
+/* ================= BALLOONS ================= */
+
+let bs=0;
+let time=20;
 let balloonTimer;
+let balloonClock;
+let balloonPlaying=false;
 
 function startBalloons(){
 
-balloonScore=0;
+    if(balloonPlaying)return;
 
-document.getElementById("balloonScore")
-.innerText=0;
+    balloonPlaying=true;
+    bs=0;
+    time=20;
 
-document.getElementById("balloonResult")
-.innerText="";
+    document.getElementById("bs").innerText=0;
+    document.getElementById("bt").innerText=20;
 
-clearInterval(balloonTimer);
+    document.getElementById("balloonStart")
+        .disabled=true;
 
-const area=
-document.getElementById("balloonArea");
+    spawnBalloon();
 
-area.innerHTML="";
+    balloonTimer=setInterval(
+        spawnBalloon,
+        650
+    );
 
-balloonTimer=setInterval(()=>{
+    balloonClock=setInterval(()=>{
 
-if(balloonScore>=10){
+        time--;
 
-clearInterval(balloonTimer);
+        document.getElementById("bt")
+            .innerText=time;
 
-document.getElementById("balloonResult")
-.innerText=
-"🎉 You won! Freeztozu unlocked another surprise!";
+        if(time<=0){
 
-confetti();
+            clearInterval(balloonTimer);
+            clearInterval(balloonClock);
 
-return;
+            balloonPlaying=false;
+
+            document.getElementById("balloonStart")
+                .disabled=false;
+
+        }
+
+    },1000);
 }
 
-const balloon=
-document.createElement("div");
 
-balloon.className="balloon";
+function spawnBalloon(){
 
-const emojis=["🎈","💜","🎈","💜"];
+    if(!balloonPlaying)return;
 
-balloon.innerText=
-emojis[Math.floor(Math.random()*emojis.length)];
+    const box=
+        document.getElementById("balloonGame");
 
-balloon.style.left=
-Math.random()*90+"%";
+    const b=
+        document.createElement("div");
 
-balloon.style.bottom="-60px";
+    b.className=
+        "balloon b"+(1+Math.floor(Math.random()*3));
 
-balloon.onclick=()=>{
+    const maxX=
+        Math.max(5,box.clientWidth-45);
 
-balloonScore++;
+    const maxY=
+        Math.max(50,box.clientHeight-50);
 
-document.getElementById("balloonScore")
-.innerText=balloonScore;
+    b.style.left=
+        (5+Math.random()*maxX)+"px";
 
-balloon.remove();
+    b.style.top=
+        (Math.random()*maxY)+"px";
 
-};
+    b.onclick=()=>{
 
-area.appendChild(balloon);
+        if(!balloonPlaying)return;
 
-setTimeout(()=>{
-balloon.remove();
-},5000);
+        bs++;
 
-},700);
+        document.getElementById("bs")
+            .innerText=bs;
 
+        b.remove();
+
+        if(bs>=10){
+
+            clearInterval(balloonTimer);
+            clearInterval(balloonClock);
+
+            balloonPlaying=false;
+
+            document.getElementById("balloonNext")
+                .disabled=false;
+
+            document.getElementById("balloonStart")
+                .disabled=false;
+
+            confetti();
+        }
+    };
+
+    box.appendChild(b);
+
+    setTimeout(()=>{
+        if(b.parentNode)b.remove();
+    },3000);
 }
 
 
 /* ================= CANDLES ================= */
 
-let candlesLeft=5;
+let candles=5;
 
-function candleOff(el){
+function candle(el){
 
-if(el.classList.contains("off")) return;
+    if(el.classList.contains("off"))
+        return;
 
-el.classList.add("off");
+    el.classList.add("off");
 
-candlesLeft--;
+    candles--;
 
-if(candlesLeft===0){
+    document.getElementById("cc")
+        .innerText=candles;
 
-document.getElementById("candleResult")
-.innerText=
-"🎉 All candles blown out! Make your birthday wish! 💜";
+    if(candles===0){
 
-confetti();
+        document.getElementById("candleNext")
+            .disabled=false;
 
+        confetti();
+    }
 }
 
+
+/* ================= TARGETS ================= */
+
+let targets=0;
+let targetPlaying=false;
+
+function startTargets(){
+
+    if(targetPlaying)return;
+
+    targets=0;
+    targetPlaying=true;
+
+    document.getElementById("ts")
+        .innerText=0;
+
+    document.getElementById("targetStart")
+        .disabled=true;
+
+    makeTarget();
 }
 
+function makeTarget(){
 
-/* ================= TARGET ================= */
+    if(!targetPlaying)return;
 
-let targetScore=0;
-let targetRunning=false;
+    if(targets>=10){
 
-function startTarget(){
+        targetPlaying=false;
 
-targetScore=0;
-targetRunning=true;
+        document.getElementById("targetStart")
+            .disabled=false;
 
-document.getElementById("targetScore")
-.innerText=0;
+        document.getElementById("targetNext")
+            .disabled=false;
 
-document.getElementById("targetResult")
-.innerText="";
+        confetti();
 
-spawnTarget();
+        return;
+    }
 
-}
+    const box=
+        document.getElementById("targetBox");
 
-function spawnTarget(){
+    box.innerHTML="";
 
-if(!targetRunning) return;
+    const t=
+        document.createElement("div");
 
-if(targetScore>=10){
+    t.className="target";
 
-targetRunning=false;
+    const x=
+        Math.random()*
+        Math.max(1,box.clientWidth-50);
 
-document.getElementById("targetResult")
-.innerText=
-"🔥 PERFECT! You hit all 10!";
+    const y=
+        Math.random()*
+        Math.max(1,box.clientHeight-50);
 
-confetti();
+    t.style.left=x+"px";
+    t.style.top=y+"px";
 
-return;
+    t.onclick=()=>{
 
-}
+        targets++;
 
-const area=
-document.getElementById("targetArea");
+        document.getElementById("ts")
+            .innerText=targets;
 
-area.innerHTML="";
+        makeTarget();
+    };
 
-const dot=
-document.createElement("div");
-
-dot.className="target-dot";
-
-dot.innerText="🎯";
-
-dot.style.left=
-Math.random()*85+"%";
-
-dot.style.top=
-Math.random()*80+"%";
-
-dot.onclick=()=>{
-
-targetScore++;
-
-document.getElementById("targetScore")
-.innerText=targetScore;
-
-spawnTarget();
-
-};
-
-area.appendChild(dot);
-
+    box.appendChild(t);
 }
 
 
 /* ================= FLIP CARDS ================= */
 
+let flips=0;
+
 function flip(card){
 
-card.classList.toggle("flipped");
+    if(card.classList.contains("open"))
+        return;
 
+    card.classList.add("open");
+
+    flips++;
+
+    if(flips>=4){
+
+        document.getElementById("flipNext")
+            .disabled=false;
+
+        confetti();
+    }
 }
 
 
-/* ================= MYSTERY ================= */
+/* ================= SECRET CARDS ================= */
 
-let cluesOpened=0;
+let secrets=0;
+
+function secret(card){
+
+    if(card.classList.contains("open"))
+        return;
+
+    card.classList.add("open");
+
+    secrets++;
+
+    if(secrets>=4){
+
+        document.getElementById("secretNext")
+            .disabled=false;
+
+        confetti();
+    }
+}
+
+
+/* ================= CLUES ================= */
+
+let clues=0;
 
 function clue(el){
 
-if(el.classList.contains("open")) return;
+    if(el.classList.contains("open"))
+        return;
 
-el.classList.add("open");
+    el.classList.add("open");
 
-cluesOpened++;
+    clues++;
 
-if(cluesOpened===3){
+    if(clues>=3){
 
-document
-.getElementById("mysteryComplete")
-.classList.remove("hidden");
+        document.getElementById("clueNext")
+            .disabled=false;
 
-confetti();
-
-}
-
+        confetti();
+    }
 }
 
 
@@ -1323,52 +1588,56 @@ confetti();
 
 function confetti(){
 
-for(let i=0;i<100;i++){
+    for(let i=0;i<65;i++){
 
-const c=
-document.createElement("div");
+        const c=
+            document.createElement("div");
 
-c.className="confetti";
+        c.className="confetti";
 
-c.style.left=
-Math.random()*100+"vw";
+        c.style.left=
+            Math.random()*100+"vw";
 
-c.style.background=
-`hsl(${Math.random()*360},90%,65%)`;
+        c.style.background=[
+            "#a855f7",
+            "#c084fc",
+            "#e879f9",
+            "#67e8f9",
+            "#ffffff"
+        ][Math.floor(Math.random()*5)];
 
-c.style.animationDuration=
-(2+Math.random()*3)+"s";
+        c.style.animationDuration=
+            (2+Math.random()*2)+"s";
 
-document.body.appendChild(c);
+        document.body.appendChild(c);
 
-setTimeout(()=>{
-c.remove();
-},5000);
-
-}
-
+        setTimeout(()=>{
+            c.remove();
+        },4500);
+    }
 }
 
 
 /* ================= FINAL ================= */
 
+function finalScreen(){
+
+    go(12);
+
+    confetti();
+
+    setTimeout(confetti,500);
+    setTimeout(confetti,1000);
+    setTimeout(confetti,1500);
+}
+
 function celebrate(){
 
-confetti();
-
-setTimeout(()=>{
-
-alert(
-"🎂 HAPPY BIRTHDAY RUDRANSH! 🎉\n\n"+
-"Happy Birthday Freeztozu bhai! 💜\n"+
-"Stay happy, stay crazy and keep gaming! 🎮🔥"
-);
-
-},500);
-
+    confetti();
+    setTimeout(confetti,500);
 }
 
 </script>
 
 </body>
-  </html>
+</html>
